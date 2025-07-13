@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Curricular Odontología</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff0f5;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+    .semestre {
+      background-color: #ffe6f0;
+      border-left: 5px solid #d63384;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .semestre h2 {
+      color: #c2185b;
+    }
+    .materia {
+      padding: 6px 0;
+    }
+    .fundamentacion {
+      background-color: #ffc1e3;
+    }
+    .disciplinar {
+      background-color: #ffb3d9;
+    }
+    .electiva {
+      background-color: #ffe4e1;
+      font-style: italic;
+    }
+    .libre {
+      background-color: #fddde6;
+      font-style: italic;
+    }
+    .opt-fund {
+      background-color: #f3c1d3;
+      font-style: italic;
+    }
+    .opt-social {
+      background-color: #f7bcd4;
+      font-style: italic;
+    }
+      .materia input[type='checkbox'] {
+      margin-right: 10px;
+    }
+    .materia.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+</style>
+</head>
+<body>
+  <h1>Malla Curricular Odontología</h1>
+
+  <div class="semestre">
+    <h2>PRIMER SEMESTRE</h2>
+    <div class="materia fundamentacion"><input type="checkbox" />QUIMICA BÁSICA- 3 CRÉDITOS</div>
+    <div class="materia fundamentacion">LOGICA INFORMAL- 3 CRÉDITOS</div>
+    <div class="materia fundamentacion">BIOLOGÍA CELULAR- 4 CRÉDITOS</div>
+    <div class="materia fundamentacion">HISTOLOGÍA Y ANATOMÍA 1 - 4 CRÉDITOS</div>
+    <div class="materia disciplinar">MORFOLOGÍA ORAL - 3 CRÉDITOS</div>
+    <div class="materia electiva">ELECTIVA: 2 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>SEGUNDO SEMESTRE</h2>
+    <div class="materia fundamentacion">BIOQUIMICA BÁSICA- PRERREQUISITO: QUIMICA BÁSICA- 3 CRÉDITOS</div>
+    <div class="materia fundamentacion">MECÁNICA DE ONDAS- 4 CRÉDITOS</div>
+    <div class="materia fundamentacion">DETERMINANTES PROCESO SALUD-ENFERMEDAD- 3 CRÉDITOS</div>
+    <div class="materia fundamentacion">HISTOLOGÍA Y ANATOMÍA 2- PRERREQUISITO: HISTOLOGÍA Y ANATOMÍA 1- 8 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>TERCER SEMESTRE</h2>
+    <div class="materia fundamentacion">FISIOLOGÍA GENERAL- PRERREQUISITO: BIOQUIMICA BÁSICA- 6 CRÉDITOS</div>
+    <div class="materia disciplinar">MICROBIOLOGÍA GENERAL Y ORAL - PRERREQUISITO: BIOQUIMICA BÁSICA- 3 CRÉDITOS</div>
+    <div class="materia disciplinar">MORFOLOGÍA ORAL Y OCLUSIÓN- PRERREQUISITO: HISTOLOGÍA Y ANATOMIA 2, MORFOLOGÍA ORAL - 3 CRÉDITOS</div>
+    <div class="materia disciplinar">IMAGENOLOGÍA-PRERREQUISITO: HISTOLOGÍA Y ANATOMIA 2- 3 CRÉDITOS</div>
+    <div class="materia opt-fund">OPTATIVA DE FUNDAMENTACIÓN: 3 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>CUARTO SEMESTRE</h2>
+    <div class="materia disciplinar">FARMACOLOGÍA-PRERREQUISITO: FISIOLOGÍA GENERAL-4 CRÉDITOS</div>
+    <div class="materia disciplinar">PATOLOGÍA GENERAL Y ORAL 1-PRERREQUISITO: FISIOLOGÍA GENERAL- 3 CRÉDITOS</div>
+    <div class="materia disciplinar">CARIOLOGÍA-PRERREQUISITO: MICROBIOLOGÍA GENERAL Y ORAL- 3 CRÉDITOS</div>
+    <div class="materia disciplinar">ENDODONCIA-PRERREQUISITO:MORFOLOGÍA ORAL Y OCLUSIÓN - 3 CRÉDITOS</div>
+    <div class="materia opt-social">OPTATIVA DE FORMACIÓN SOCIAL: 2 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>QUINTO SEMESTRE</h2>
+    <div class="materia disciplinar">PRINCIPIOS QUIRURGICOS Y ANESTESIOLOGÍA-PRERREQUISITO: FARMACOLOGÍA3 CRÉDITOS</div>
+    <div class="materia disciplinar">PATOLOGÍA GENERAL Y ORAL 2-PRERREQUISITO: PATOLOGÍA GENERAL Y ORAL 1-2 CRÉDITOS</div>
+    <div class="materia disciplinar">SEMIOLOGÍA-PRERREQUISITO: IMAGENOLOGÍA, PATOLOGÍA GENERAL Y ORAL 1-3 CRÉDITOS</div>
+    <div class="materia disciplinar">OPERATORIA Y MATERIALES DENTALES-PRERREQUISITO:MORFOLOGÍA ORAL Y OCLUSIÓN, CARIOLOGÍA-3 CRÉDITOS</div>
+    <div class="materia disciplinar">PERIODONCIA-PRERREQUISITO:CARIOLOGÍA, PATOLOGÍA GENERAL Y ORAL 1 -3 CRÉDITOS</div>
+    <div class="materia fundamentacion">EPIDEMIOLOGÍA-PRERREQUISITO:DETERMINANTES PROCESO SALUD ENFERMEDAD-3 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>SEXTO SEMESTRE</h2>
+    <div class="materia disciplinar">ORTODONCIA CRECIMIENTO Y DESARROLLO-PRERREQUISITO:MORFOLOGÍA ORAL Y OCLUSIÓN, SEMIOLOGÍA-3 CRÉDITOS</div>
+    <div class="materia opt-fund">OPTATIVA DE FUNDAMENTACIÓN: 3 CRÉDITOS</div>
+    <div class="materia disciplinar">CLÍNICA ODONTOLÓGICA DEL ADULTO 1-PRERREQUISITO:ENDODONCIA, PERIODONCIA, PRINCIPIOS QUIRÚRGICOS Y ANESTESIOLOGÍA-2 CRÉDITOS</div>
+    <div class="materia disciplinar">REHABILITACIÓN ORAL 1-PRERREQUISITO:OPERATORIA Y MATERIALES DENTALES-3 CRÉDITOS</div>
+    <div class="materia disciplinar">BIOÉTICA-PRERREQUISITO:SEMIOLOGÍA, DETERMINANTES PROCESO SALUD ENFERMEDAD-2 CRÉDITOS</div>
+    <div class="materia disciplinar">ODONTOPEDIATRÍA-PRERREQUISITO:SEMIOLOGÍA, OPERATORIA Y MATERIALES DENTALES-3 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>SÉPTIMO SEMESTRE</h2>
+    <div class="materia disciplinar">CLÍNICA ODONTOLOGICA DEL NIÑO 1-PRERREQUISITO: SEMIOLOGÍA, ODONTOPEDIATRÍA, PRINCIPIOS QUIRURGICOS Y ANESTESIOLOGÍA-2 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLOGICA DEL ADULTO 2-PRERREQUISITO: CLÍNICA DEL ADULTO 1-3 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DE CIRUGÍA ORAL 1-PRERREQUISITO: CLINICA DEL ADULTO 1 -2 CRÉDITOS</div>
+    <div class="materia disciplinar">REHABILITACIÓN ORAL 2-PRERREQUISITO: OPERATORIA Y MATERIALES DENTALES-3 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CREDITOS</div>
+    <div class="materia fundamentacion">POLITICAS PUBLICAS Y ADMINISTRACIÓN EN SALUD-PRERREQUISITO: EPIDEMIOLOGÍA- 2 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>OCTAVO SEMESTRE</h2>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DEL NIÑO 2-PRERREQUISITO:CLÍNICA ODONTOLÓGICA DEL NIÑO 1-3 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DE ORTODONCIA 1-PRERREQUISITO:ORTODONCIA CRECIMIENTO Y DESARROLLO, CLINICA ODONTOLOGICA DEL NIÑO 1- 1 CRÉDITO</div>
+    <div class="materia disciplinar">CLÍNICA ODONTOLÓGICA DE CIRUGIA ORAL 2-PRERREQUISITO:CLINICA DE CIRUGÍA ORAL 1 -2 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DEL ADULTO 3-PRERREQUISITO: CLINICA ODONTOLOGICA DEL ADULTO 2, REHABILITACIÓN ORAL 2 -3 CRÉDITOS</div>
+    <div class="materia opt-fund">OPTATIVA DE PRINCIPIOS ODONTOLÓGICOS- 2 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>NOVENO SEMESTRE</h2>
+    <div class="materia disciplinar">CLÍNICA ODONTOLÓGICA DE ORTODONCIA 2-PRERREQUISITO: CLINICA ODONTOLOGIA DE ORTODONCIA 1 -3 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DEL ADULTO MAYOR-PRERREQUISITO: CLINICA DEL ADULTO 2, REHABILITACIÓN ORAL 2- 2 CRÉDITOS</div>
+    <div class="materia disciplinar">CLINICA ODONTOLÓGICA DEL ADULTO 4-PRERREQUISITO:CLINICA DEL ADULTO 2, REHABILITACIÓN ORAL 2 -3 CRÉDITOS</div>
+    <div class="materia fundamentacion">SALUD PÚBLICA-PRERREQUISITO:POLITICAS PUBLICAS Y ADMINISTRACIÓN EN SALUD, EPIDEMIOLOGÍA -2 CRÉDITOS</div>
+    <div class="materia opt-fund">OPTATIVA DE INDAGACIÓN E INVESTIGACIÓN: 3 CRÉDITOS</div>
+    <div class="materia electiva">ELECTIVA DE PROFUNDIZACIÓN: 6 CRÉDITOS</div>
+  </div>
+
+  <div class="semestre">
+    <h2>DÉCIMO SEMESTRE</h2>
+    <div class="materia disciplinar">CLÍNICA DE ODONTOLOGÍA HOSPITALARIA-PRERREQUISITO:CLÍNICA ODONTOLÓGICA DEL NIÑO 2- 2 CRÉDITOS</div>
+    <div class="materia disciplinar">TRABAJO DE GRADO: 6 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+    <div class="materia libre">LIBRE ELECCIÓN: 3 CRÉDITOS</div>
+    <div class="materia electiva">ELECTIVA DE PROFUNDIZACIÓN: 6 CRÉDITOS</div>
+  </div>
+
+<script>
+  const materias = document.querySelectorAll('.materia');
+  const prerequisitos = {};
+
+  materias.forEach(m => {
+    const texto = m.textContent;
+    const nombre = texto.split('-')[0].trim();
+    const match = texto.match(/PRERREQUISITO:(.*?)-/);
+    const clave = nombre.toUpperCase();
+
+    if (match) {
+      const prereqs = match[1].split(',').map(p => p.trim().toUpperCase());
+      prerequisitos[clave] = prereqs;
+      m.classList.add('disabled');
+    }
+
+    m.dataset.clave = clave;
+  });
+
+  document.querySelectorAll('.materia input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const seleccionadas = [...document.querySelectorAll('.materia input[type="checkbox"]:checked')]
+        .map(cb => cb.parentElement.dataset.clave);
+
+      materias.forEach(m => {
+        const clave = m.dataset.clave;
+        if (prerequisitos[clave]) {
+          const requiere = prerequisitos[clave];
+          const habilitada = requiere.every(r => seleccionadas.includes(r));
+          m.classList.toggle('disabled', !habilitada);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
