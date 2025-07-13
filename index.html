@@ -9,31 +9,27 @@
       font-family: sans-serif;
       background-color: #fff0f5;
       margin: 20px;
+      overflow-x: auto;
     }
     h1 {
       text-align: center;
       color: #d63384;
     }
     .malla-container {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 10px;
-}
-
-.semestre {
-  background-color: #ffe6f0;
-  border-left: 5px solid #d63384;
-  padding: 15px;
-  border-radius: 10px;
-  min-width: 300px;
-  flex: 0 0 auto;
-  margin-bottom: 0;
-}
-   
-    .semestre h2 {
-      color: #c2185b;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+    .semestre {
+      background-color: #ffe6f0;
+      border-left: 5px solid #d63384;
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 300px;
+      flex: 0 0 auto;
+      margin-bottom: 0;
     }
     .materia {
       padding: 6px 0;
@@ -60,18 +56,22 @@
       background-color: #f7bcd4;
       font-style: italic;
     }
-      .materia input[type='checkbox'] {
+    .materia input[type='checkbox'] {
       margin-right: 10px;
     }
     .materia.disabled {
       opacity: 0.4;
       pointer-events: none;
     }
-</style>
+    .materia.checked {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
 </head>
 <body>
   <h1>Malla Curricular Odontología</h1>
-
+  <div class="malla-container">
   <div class="semestre">
     <h2>PRIMER SEMESTRE</h2>
     <div class="materia fundamentacion"><input type="checkbox" /> QUIMICA BÁSICA- 3 CRÉDITOS</div>
@@ -169,75 +169,77 @@
     <div class="materia libre"><input type="checkbox" />LIBRE ELECCIÓN: 3 CRÉDITOS</div>
     <div class="materia electiva"><input type="checkbox" />ELECTIVA DE PROFUNDIZACIÓN: 6 CRÉDITOS</div>
   </div>
+  <script>
+    const materias = document.querySelectorAll('.materia');
+    const prerequisitos = {};
 
-<script>
-  const materias = document.querySelectorAll('.materia');
-  const prerequisitos = {};
+    materias.forEach(m => {
+      const texto = m.textContent;
+      const nombre = texto.split('-')[0].trim();
+      const match = texto.match(/PRERREQUISITO:(.*?)-/);
+      const clave = nombre.toUpperCase();
 
-  materias.forEach(m => {
-    const texto = m.textContent;
-    const nombre = texto.split('-')[0].trim();
-    const match = texto.match(/PRERREQUISITO:(.*?)-/);
-    const clave = nombre.toUpperCase();
+      if (match) {
+        const prereqs = match[1].split(',').map(p => p.trim().toUpperCase());
+        prerequisitos[clave] = prereqs;
+        m.classList.add('disabled');
+      }
 
-    if (match) {
-      const prereqs = match[1].split(',').map(p => p.trim().toUpperCase());
-      prerequisitos[clave] = prereqs;
-      m.classList.add('disabled');
-    }
+      m.dataset.clave = clave;
+    });
 
-    m.dataset.clave = clave;
-  });
+    document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const seleccionadas = [...document.querySelectorAll('.materia input[type="checkbox"]:checked')]
+          .map(cb => {
+            cb.parentElement.classList.add('checked');
+            return cb.parentElement.dataset.clave;
+          });
 
-  document.querySelectorAll('.materia input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-      const seleccionadas = [...document.querySelectorAll('.materia input[type="checkbox"]:checked')]
-        .map(cb => cb.parentElement.dataset.clave);
+        document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
+          if (!cb.checked) {
+            cb.parentElement.classList.remove('checked');
+          }
+        });
 
-      materias.forEach(m => {
-        const clave = m.dataset.clave;
-        if (prerequisitos[clave]) {
-          const requiere = prerequisitos[clave];
-          const habilitada = requiere.every(r => seleccionadas.includes(r));
-          m.classList.toggle('disabled', !habilitada);
-        }
+        materias.forEach(m => {
+          const clave = m.dataset.clave;
+          if (prerequisitos[clave]) {
+            const requiere = prerequisitos[clave];
+            const habilitada = requiere.every(r => seleccionadas.includes(r));
+            m.classList.toggle('disabled', !habilitada);
+          }
+        });
+
+        guardarEstado();
       });
     });
-  });
-  // Guardar y cargar estado con localStorage
-const STORAGE_KEY = "mallaCheckState";
 
-function guardarEstado() {
-  const estado = {};
-  document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
-    const clave = cb.parentElement.dataset.clave;
-    estado[clave] = cb.checked;
-  });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
-}
-
-function cargarEstado() {
-  const estadoGuardado = localStorage.getItem(STORAGE_KEY);
-  if (!estadoGuardado) return;
-
-  const estado = JSON.parse(estadoGuardado);
-  document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
-    const clave = cb.parentElement.dataset.clave;
-    if (estado[clave]) {
-      cb.checked = true;
-      cb.dispatchEvent(new Event("change")); // activa prerrequisitos y tachado
+    const STORAGE_KEY = "mallaCheckState";
+    function guardarEstado() {
+      const estado = {};
+      document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
+        const clave = cb.parentElement.dataset.clave;
+        estado[clave] = cb.checked;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
     }
-  });
-}
 
-// Vincular eventos
-document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
-  cb.addEventListener("change", guardarEstado);
-});
+    function cargarEstado() {
+      const estadoGuardado = localStorage.getItem(STORAGE_KEY);
+      if (!estadoGuardado) return;
 
-// Cargar al iniciar
-cargarEstado();
+      const estado = JSON.parse(estadoGuardado);
+      document.querySelectorAll('.materia input[type="checkbox"]').forEach(cb => {
+        const clave = cb.parentElement.dataset.clave;
+        if (estado[clave]) {
+          cb.checked = true;
+          cb.dispatchEvent(new Event("change"));
+        }
+      });
+    }
 
-</script>
+    cargarEstado();
+  </script>
 </body>
 </html>
