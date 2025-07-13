@@ -176,8 +176,8 @@
     materias.forEach(m => {
       const texto = m.textContent;
       const nombre = texto.split('-')[0].trim();
-      const match = texto.match(/PRERREQUISITO:([^
-]*)/i);
+      const match = texto.match(/PRERREQUISITO:([^\n]*)/i);
+
       const clave = nombre.toUpperCase();
 
       if (match) {
